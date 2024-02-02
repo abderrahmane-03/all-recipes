@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RecipesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::post('/hello', function () {
     return view('welcome');
 });
+
+Route::get('/recipes', [RecipesController::class,'index'])->name('recipes.recipes');
+
+Route::get('/recipes/create', [RecipesController::class,'create'])->name('recipes.create');
+
+Route::post('/recipes', [RecipesController::class,'store'])->name('recipes.store');
+
+Route::get('/recipes{recipe}/edit', [RecipesController::class,'edit'])->name('recipes.edit');
+Route::put('/recipes{recipe}/update', [RecipesController::class,'update'])->name('recipes.update');
+Route::delete('/recipes{recipe}/destroy', [RecipesController::class,'destroy'])->name('recipes.destroy');
