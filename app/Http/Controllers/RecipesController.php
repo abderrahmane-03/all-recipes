@@ -63,10 +63,13 @@ class RecipesController extends Controller
    
     }
     public function destroy(Recipe $recipe) {
- $recipe->delete();
- return redirect()->route('recipes.recipes');
-   
-
+    $recipe->delete();
+    return redirect()->route('recipes.recipes');
+    }
+    public function search()    {
+      $search_text = $_GET['query'];
+      $recipes= Recipe::where('title','LIKE','%'.$search_text.'%')->get();
+      return view('recipes.search',['recipes'=>$recipes]);
     }
        
     

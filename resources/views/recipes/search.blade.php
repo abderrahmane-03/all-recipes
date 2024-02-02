@@ -138,7 +138,7 @@
                         </p>
                         
                     </h3><form method="post">
-                            <input type="hidden">
+                            <input type="hidden" name="idWiki">
                             <a href="{{route('recipes.edit',['recipe'=>$recipe])}}">
                             <button type="button">
                                 <svg class="w-6 h-6 text-gray-800 dark:text-gray-500" aria-hidden="true"

@@ -27,3 +27,5 @@ Route::post('/recipes', [RecipesController::class,'store'])->name('recipes.store
 Route::get('/recipes{recipe}/edit', [RecipesController::class,'edit'])->name('recipes.edit');
 Route::put('/recipes{recipe}/update', [RecipesController::class,'update'])->name('recipes.update');
 Route::delete('/recipes{recipe}/destroy', [RecipesController::class,'destroy'])->name('recipes.destroy');
+
+Route::get('/search', [RecipesController::class,'search'])->name('recipes.search');
